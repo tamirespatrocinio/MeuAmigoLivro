@@ -1,0 +1,56 @@
+.d-flex{
+    background-color: #f9f7f1;
+}
+
+#img-bg {
+    background-image: url('../img/book.jpg');
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+input{
+    width: 200px;
+    margin-bottom: 15px;
+    background: transparent;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.btn-login{
+        padding: 5px 20px;
+        margin-top: 30px;
+        background: transparent;
+        border-radius: 5px;
+        box-shadow: 0 0 4px #fff;
+        cursor: pointer;
+}
+
+.btn-cadastro, .btn-login {
+    color: #fff;
+    background-color: #FE6E4B;
+    border-color: #FE6E4B;
+    margin: 20px 10px;
+}
+
+.btn-cadastro:hover, .btn-login:hover {
+    color: #fff;
+    background-color: #f8461a;
+    border-color: #f8461a;
+}
+
+input[placeholder]:focus{
+       color:#fff;
+}
+
+input:focus, .btn:hover{
+    box-shadow: 0 0 10px #fff;
+}
+
+   @media (max-width: 600px) {
+       img{
+           width: 650px;
+       }
+   }
