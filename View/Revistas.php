@@ -2,6 +2,8 @@
 session_start();
 isset($_SESSION['id_usuario']);
 include_once("../Model/usuarios.php");
+include_once("../Model/bancoRevista.php");
+include_once("../Model/conexao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -30,40 +32,66 @@ include_once("../Model/usuarios.php");
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="height: 80px;">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link active" aria-current="page" style="color: white;" href="../View/MeuAmigoLivro.php">Home</a>
+                        <a class="nav-link active" aria-current="page" style="color: white;" href="../View/Index.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="../View/Index.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                            Livros
-                        </a>
+                        <a class="nav-link active" aria-current="page" style="color: white;" href="../View/Livros.php">Livros</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="../View/Quadrinhos.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                            Quadrinhos
-                        </a>
+                        <a class="nav-link active" aria-current="page" style="color: white;" href="../View/Quadrinhos.php">Quadrinhos</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="../View/Revistas.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                            Revistas
-                        </a>
+                        <a class="nav-link active" aria-current="page" style="color: white;" href="../View/Revistas.php">Revistas</a>
                     </li>
             </div>
             <li class="dropdown-toggle d-flex align-items-center hidden-arrow"><a href="Login.php"><button class="btn-nav login-btn">Login</button></a>
         </div>
         </div>
     </nav>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-4 mx-auto">
+                <form action="" method="POST">
+                    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                        <div class="input-group px-1">
+                            <input type="search" name="revista" placeholder="Qual revista deseja procurar?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                            <div class="input-group-append ">
+                                <button type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <div class="row mb-5">
-        <div class="col-lg-4 mx-auto">
-            <form action="" method="POST">
-                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                    <div class="input-group px-1">
-                        <input type="search" name="busca" placeholder="Qual revista deseja procurar?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
-                        <div class="input-group-append ">
-                            <button type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+
+        <?php
+        $revista = isset($_POST["revista"]) ? $_POST["revista"] : "";
+        $dado = visuNomeRevista($conexao, $revista);
+        foreach ($dado as $dados) :
+        ?>
+
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="<?= $dados["caparevista"] ?>" width="180">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $dados["nomerevista"] ?></h5>
+                            <p class="card-text"><?= $dados["resenharevista"] ?>.</p>
+                            <p class="card-text"><small class="text-muted"><?= $dados["anorevista"] ?></small></p>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+
+        <?php
+        endforeach
+        ?>
+
     </div>
+
+</body>
+
+</html>
