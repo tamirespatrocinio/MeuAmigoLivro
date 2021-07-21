@@ -11,6 +11,10 @@ include_once("../Model/conexao.php");
       <label class="form-label">Digite o nome da Revista</label>
       <input type="text" required class="form-control" name="revista">
       </br>
+      <div class="col-12 mb-3">
+        <button type="submit" class="btn-login btn-default">Localizar</button>
+      </div>
+    </div>
   </form>
 
   <table class="table table-striped">

@@ -4,8 +4,8 @@ isset($_SESSION['id_usuario']);
 include_once("../Model/usuarios.php");
 include_once("../Model/bancoLivro.php");
 include_once("../Model/conexao.php");
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -25,13 +25,14 @@ include_once("../Model/conexao.php");
   <nav class="navbar navbar-expand-lg bg-dark" style="margin-bottom: 60px;">
 
     <div class="container-fluid">
-      <a class="navbar-brand" href="Index.php"><img src="../View/img/livro.png" alt="" width="140px"></a>
+      <a class="navbar-brand" href="Index.php"><img src="../View/img/livro.png" alt="logo" width="140px"></a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="height: 80px;">
-        <ul class="navbar-nav mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link active" aria-current="page" style="color: white;" href="../View/Index.php">Home</a>
           </li>
@@ -44,13 +45,13 @@ include_once("../Model/conexao.php");
           <li class="nav-item dropdown">
             <a class="nav-link active" aria-current="page" style="color: white;" href="../View/Revistas.php">Revistas</a>
           </li>
+        </ul>
       </div>
-      <li class="dropdown-toggle d-flex align-items-center hidden-arrow"><a href="Login.php"><button class="btn-nav login-btn">Login</button></a>
-    </div>
+      <li class="dropdown-toggle align-items-center hidden-arrow mt-3">
+        <a href="../View/Login.php"><button class="btn-login btn-default">Login</button></a>
+      </li>
     </div>
   </nav>
-
-
 
   <div class="container">
     <div class="row mb-5">
@@ -68,17 +69,16 @@ include_once("../Model/conexao.php");
       </div>
     </div>
 
-
     <?php
     $livro = isset($_POST["livro"]) ? $_POST["livro"] : "";
     $dado = visuNomeLivro($conexao, $livro);
     foreach ($dado as $dados) :
     ?>
 
-      <div class="card mb-3" style="max-width: 540px;">
+      <div class="card mb-3" style="float: left; margin-left:40px; max-width: 520px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="<?= $dados["capalivro"] ?>" width="180">
+            <img src="<?= $dados["capalivro"] ?>" width="170">
           </div>
           <div class="col-md-8">
             <div class="card-body">

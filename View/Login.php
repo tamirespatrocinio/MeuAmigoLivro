@@ -13,7 +13,7 @@ $u = new Usuario;
     <link rel="icon" type="image/png" sizes="30x30" href="img/meu.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@ $u = new Usuario;
                                 <input class="form-control" type="email" name="email" id="inputUsuario">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group pt-3">
                                 <label for="inputSenha">Senha</label>
                                 <input class="form-control" type="password" name="senha" id="inputSenha">
                             </div>
@@ -52,30 +52,33 @@ $u = new Usuario;
                                             header("location: AreaFuncionario.php");
                                         } else {
                             ?>
-                                            <div class="container-fluid text-center mb-3 alert alert-danger">Email e/ou senha incorretos!</div>
+                                            <div class="container-fluid text-center mb-1 mt-3 alert alert-danger">Email e/ou senha incorretos!</div>
                                         <?php
                                         }
                                     } else {
                                         ?>
-                                        <div class="container-fluid text-center mb-3 alert alert-danger">
+                                        <div class="container-fluid text-center mb-1 mt-3 alert alert-danger">
                                             <?php echo "Erro: " . $u->msgErro; ?>
                                         </div>
                                     <?php
                                     }
                                 } else {
                                     ?>
-                                    <div class="container-fluid text-center mb-3 alert alert-danger">Preencha todos os campos!</div>
+                                    <div class="container-fluid text-center mb-1 mt-3 alert alert-danger">Preencha todos os campos!</div>
                             <?php
                                 }
                             }
                             ?>
-                            <p class="text-center ">
+                            <p class="text-center pt-3">
                                 Não tem uma conta? <a href="Cadastrar.php">Cadastre-se</a>
                             </p>
-                            <div class="d-flex justify-content-center">
-                                <button onclick="window.history.go(-1); return false" type="submit" value="Cancel" class="btn btn-login">Voltar</button>
-                                <button type="submit" value="acessar" class="btn btn-login">Entrar</button>
-                            </div>
+                            <div class="btn-group d-flex justify-content-center mt-3">
+                                <div class="col-auto px-2 ">
+                                    <button onclick="window.history.go(-1); return false" type="submit" value="Cancel" class="btn-cancel btn-default">Voltar</button>
+                                </div>
+                                <div class="col-auto px-2">
+                                    <button type="submit" value="acessar" class="btn-login btn-default">Entrar</button>
+                                </div>
                         </form>
                     </div>
                 </div>

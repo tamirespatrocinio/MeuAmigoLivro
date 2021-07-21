@@ -43,11 +43,14 @@ include_once("../Model/conexao.php");
                     <li class="nav-item dropdown">
                         <a class="nav-link active" aria-current="page" style="color: white;" href="../View/Revistas.php">Revistas</a>
                     </li>
+                </ul>
             </div>
-            <li class="dropdown-toggle d-flex align-items-center hidden-arrow"><a href="Login.php"><button class="btn-nav login-btn">Login</button></a>
-        </div>
+            <li class="dropdown-toggle align-items-center hidden-arrow mt-3"><a href="Login.php">
+                    <button class="btn-login btn-default">Login</button></a>
+            </li>
         </div>
     </nav>
+
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-4 mx-auto">
@@ -71,7 +74,7 @@ include_once("../Model/conexao.php");
         foreach ($dado as $dados) :
         ?>
 
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" style="float: left; margin-left:20px; max-width: 520px;">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="<?= $dados["caparevista"] ?>" width="180">
@@ -79,7 +82,7 @@ include_once("../Model/conexao.php");
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title"><?= $dados["nomerevista"] ?></h5>
-                            <p class="card-text"><?= $dados["resenharevista"] ?>.</p>
+                            <p class="card-text"><?= $dados["urlrevista"] ?>.</p>
                             <p class="card-text"><small class="text-muted"><?= $dados["anorevista"] ?></small></p>
                         </div>
                     </div>

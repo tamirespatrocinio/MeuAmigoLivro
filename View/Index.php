@@ -19,7 +19,7 @@
                 <div class="text-center">
                     <h1 class="mx-auto my-0 text-uppercase">Meu Amigo Livro</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">Você vai ser sempre bem-vindo(a) para ficar um tempo ou para sempre, se quiser. - David Nicholls</h2>
-                    <a class="btn btn-primary" href="Livros.php">Entre</a>
+                    <a class="btn btn-primary" href="../View/Livros.php">Entre</a>
                 </div>
             </div>
         </div>

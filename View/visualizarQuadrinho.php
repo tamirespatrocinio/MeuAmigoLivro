@@ -1,5 +1,5 @@
 <?php
-include_once("../View/header.php");
+include_once("../View/Header.php");
 include_once("../Model/bancoQuadrinho.php");
 include_once("../Model/conexao.php");
 ?>
@@ -11,6 +11,10 @@ include_once("../Model/conexao.php");
       <label class="form-label">Digite o nome do Quadrinho</label>
       <input type="text" required class="form-control" name="quadrinho">
       </br>
+      <div class="col-12 mb-3">
+        <button type="submit" class="btn-login btn-default">Localizar</button>
+      </div>
+    </div>
   </form>
 
   <table class="table table-striped">
@@ -29,7 +33,7 @@ include_once("../Model/conexao.php");
     </thead>
     <tbody>
       <?php
-      $quadrinho= isset($_POST["quadrinho"]) ? $_POST["quadrinho"] : "";
+      $quadrinho = isset($_POST["quadrinho"]) ? $_POST["quadrinho"] : "";
       $dado = visuNomeQuadrinho($conexao, $quadrinho);
       foreach ($dado as $dados) :
       ?>
@@ -42,12 +46,12 @@ include_once("../Model/conexao.php");
           <td><?= $dados["editoraquadrinho"] ?></td>
           <td><?= $dados["autorquadrinho"] ?></td>
           <td>
-            <a class="btn btn-primary" href="alterarQuadrinho.php?codigo=<?= $dados["codquadrinho"] ?>">Alterar</a>
+            <a class="btn-login btn-default" href="alterarQuadrinho.php?codigo=<?= $dados["codquadrinho"] ?>">Alterar</a>
           </td>
           <td>
             <form action="../Controller/deleteQuadrinho.php" method="POST">
               <input type="hidden" name="codquadrinho" value="<?= $dados["codquadrinho"] ?>">
-              <button class="btn btn-danger" type="submit">Deletar</button>
+              <button class="btn-cancel btn-default" type="submit">Deletar</button>
             </form>
           </td>
         </tr>
