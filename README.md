@@ -38,9 +38,10 @@ O site é composto por:
  
 </div> 
  
-
+<div  align="center">
+  
 ## 🚀 Autores<br>
-<table align="center">
+<table>
   <tr>
     <td align="center">
       <a href="https://github.com/tamirespatrocinio">
@@ -60,4 +61,4 @@ O site é composto por:
     </td>
   </tr>
 </table>
-
+</div>
